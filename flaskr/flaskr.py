@@ -65,10 +65,10 @@ def login():
 			error = 'Invalid info'
 		elif request.form['password'] != app.config['password']:
 			error = 'Invalid info'
-	else:
-		session['logged_in'] = True
-		flash('successfully logged_in')
-		return redirect(url_for('show_entries'))
+		else:
+			session['logged_in'] = True
+			flash('successfully logged_in')
+			return redirect(url_for('show_entries'))
 	return render_template('login.html',error=error)
 
 @app.route('/logout')
